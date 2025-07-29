@@ -1,4 +1,4 @@
-part of '../pusher_client.dart';
+part of '../pusher_client_ego.dart';
 
 typedef EventCallback = void Function(dynamic event);
 

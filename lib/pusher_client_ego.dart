@@ -1,4 +1,4 @@
-library pusher_client_EGO;
+library pusher_client_ego;
 
 import 'dart:convert';
 import 'dart:async';

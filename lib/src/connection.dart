@@ -1,4 +1,4 @@
-part of '../pusher_client.dart';
+part of '../pusher_client_ego.dart';
 
 class PusherConnection {
   WebSocket? _socket;

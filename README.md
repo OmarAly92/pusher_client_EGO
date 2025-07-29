@@ -32,7 +32,7 @@ dependencies:
 ### 1. Import and initialize
 
   ```dart
-  import 'package:pusher_client/pusher_client.dart';
+  import 'package:pusher_client/pusher_client_ego.dart';
   
   final pusher = PusherClient(
 key: 'YOUR_PUSHER_KEY',
