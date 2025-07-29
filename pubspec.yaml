@@ -2,7 +2,7 @@
   description: " A lightweight Flutter client for Pusher Channels, supporting public, private, and presence channels with real-time event binding and client event triggering — inspired by the official pusher-js library."
   repository: https://github.com/OmarAly92/pusher_client_EGO
 
-  version: 1.0.0+2
+  version: 1.0.0+3
 
   environment:
     sdk: ^3.8.1
