@@ -6,6 +6,7 @@ class PusherClient {
   final String? authEndpoint;
   final Map<String, String> headers;
   final String? bindEvent;
+  final Dio? dio;
 
   late final PusherConnection _connection;
   final Map<String, PusherChannel> _channels = {};
@@ -16,6 +17,7 @@ class PusherClient {
     required this.cluster,
     this.authEndpoint,
     this.bindEvent,
+    this.dio,
     this.headers = const {},
   }) {
     _connection = PusherConnection(
@@ -28,6 +30,7 @@ class PusherClient {
 
     if (authEndpoint != null) {
       _authorizer = PusherAuthorizer(
+        dio: dio ?? Dio(),
         authEndpoint: authEndpoint!,
         headers: headers,
       );

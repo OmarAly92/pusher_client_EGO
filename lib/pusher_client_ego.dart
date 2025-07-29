@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'dart:async';
 import 'dart:io';
 
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 part 'src/pusher.dart';
 part 'src/channel.dart';

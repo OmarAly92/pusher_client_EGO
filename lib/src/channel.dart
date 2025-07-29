@@ -10,12 +10,20 @@ class PusherChannel {
 
   PusherChannel(this.name, this.connection);
 
-  void bind(String eventName, EventCallback callback) {
+  void bind({
+    String? eventName,
+    required EventCallback success,
+    EventCallback? error,
+  }) {
     _subscription = connection.streamController.stream.listen((event) {
-      if (event['event'] == eventName) {
-        callback(event);
+      if (eventName == null) {
+        success(event);
+        return;
       }
-    });
+      if (event['event'] == eventName) {
+        success(event);
+      }
+    }, onError: error);
   }
 
   void handleEvent(PusherEvent event) {
