@@ -1,8 +1,9 @@
 part of '../pusher_client.dart';
 
-typedef EventCallback = void Function(PusherEvent event);
+typedef EventCallback = void Function(dynamic event);
 
 class PusherChannel {
+  StreamSubscription? _subscription;
   final String name;
   final PusherConnection connection;
   final Map<String, List<EventCallback>> _eventBindings = {};
@@ -10,7 +11,11 @@ class PusherChannel {
   PusherChannel(this.name, this.connection);
 
   void bind(String eventName, EventCallback callback) {
-    _eventBindings.putIfAbsent(eventName, () => []).add(callback);
+    _subscription = connection.streamController.stream.listen((event) {
+      if (event['event'] == eventName) {
+        callback(event);
+      }
+    });
   }
 
   void handleEvent(PusherEvent event) {
@@ -27,5 +32,13 @@ class PusherChannel {
       'data': jsonEncode(data),
       'channel': name,
     });
+  }
+
+  void close() {
+    connection.send({
+      'event': 'pusher:unsubscribe',
+      'data': {'channel': name},
+    });
+    _subscription?.cancel();
   }
 }

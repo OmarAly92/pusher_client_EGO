@@ -32,17 +32,10 @@ class PusherConnection {
         if (decoded['event'] == 'pusher:connection_established') {
           final payload = jsonDecode(decoded['data']);
           socketId = payload['socket_id'];
-          completer.complete(); // Now the connection is ready
+          completer.complete();
         }
-        if (bindEvent?.isEmpty ?? true) {
-          streamController.add(jsonDecode(decoded['data']));
-          onEvent(decoded['event'], decoded);
-        } else {
-          if (decoded['event'] == bindEvent) {
-            streamController.add(jsonDecode(decoded['data']));
-            onEvent(decoded['event'], decoded);
-          }
-        }
+        streamController.add(decoded);
+        onEvent(decoded['event'], decoded);
       },
       onError: (error) {
         completer.completeError(error);

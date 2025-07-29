@@ -36,7 +36,7 @@ class PusherClient {
 
   Future<void> connect() => _connection.connect();
 
-  Stream<dynamic> subscribe(String channelName) {
+  PusherChannel subscribe(String channelName) {
     final channel = PusherChannel(channelName, _connection);
     _channels[channelName] = channel;
 
@@ -58,7 +58,7 @@ class PusherClient {
         'data': {'channel': channelName},
       });
     }
-    return _connection.streamController.stream;
+    return channel;
   }
 
   void _handleEvent(String event, dynamic raw) {
