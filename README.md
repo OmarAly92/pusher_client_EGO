@@ -140,7 +140,7 @@ await Future.delayed(Duration(days: 365)); // Keep alive
 
 ## 📃 License
 
-MIT © Your Name
+MIT © Omar Aly
 
 ---
 
