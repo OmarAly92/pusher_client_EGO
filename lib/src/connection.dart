@@ -47,10 +47,10 @@ class PusherConnection {
     _socket?.add(jsonEncode(data));
   }
 
-  void disconnect() {
-    streamController.close();
-    _eventSubscription?.cancel();
-    _socket?.close();
+  Future<void> disconnect() async {
+    await streamController.close();
+    await _eventSubscription?.cancel();
+    await _socket?.close();
     _socket = null;
   }
 }

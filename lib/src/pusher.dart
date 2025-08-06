@@ -71,8 +71,8 @@ class PusherClient {
   bool _isPrivate(String channel) =>
       channel.startsWith('private-') || channel.startsWith('presence-');
 
-  void disconnect() {
-    _connection.disconnect();
+  Future<void> disconnect() async {
+    await _connection.disconnect();
     _channels.clear();
   }
 }
