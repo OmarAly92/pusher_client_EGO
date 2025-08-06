@@ -20,3 +20,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Replace http to Dio package.
+
+## [1.0.0+4] - 2025-08-06
+
+### Added
+
+- Update disconnect methods.
