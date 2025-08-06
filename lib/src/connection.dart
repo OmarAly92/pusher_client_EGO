@@ -6,7 +6,6 @@ class PusherConnection {
   final String cluster;
   final void Function(String, dynamic) onEvent;
   late String socketId;
-  final String? bindEvent;
 
   StreamSubscription? _eventSubscription;
   StreamController streamController;
@@ -16,7 +15,6 @@ class PusherConnection {
     required this.cluster,
     required this.onEvent,
     required this.streamController,
-    this.bindEvent,
   });
 
   Future<void> connect() async {

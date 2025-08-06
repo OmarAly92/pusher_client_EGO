@@ -5,7 +5,6 @@ class PusherClient {
   final String cluster;
   final String? authEndpoint;
   final Map<String, String> headers;
-  final String? bindEvent;
   final Dio? dio;
 
   late final PusherConnection _connection;
@@ -16,7 +15,6 @@ class PusherClient {
     required this.key,
     required this.cluster,
     this.authEndpoint,
-    this.bindEvent,
     this.dio,
     this.headers = const {},
   }) {
@@ -25,7 +23,6 @@ class PusherClient {
       cluster: cluster,
       onEvent: _handleEvent,
       streamController: StreamController(),
-      bindEvent: bindEvent,
     );
 
     if (authEndpoint != null) {
