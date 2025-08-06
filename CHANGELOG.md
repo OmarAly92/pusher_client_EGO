@@ -26,3 +26,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Update disconnect methods.
+
+## [1.0.0+5] - 2025-08-06
+
+### Updated
+
+- Update disconnect methods.
