@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file.
 
 - Replace http to Dio package.
 
-## [1.0.0+4] - 2025-08-06
+## [1.0.0+4] - 2025-08-06 
 
 ### Added
 
